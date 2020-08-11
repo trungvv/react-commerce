@@ -5,27 +5,19 @@ import { createStructuredSelector } from 'reselect';
 import CollectionOverview from '../../components/collection-overview/collection-overview.component';
 import CollectionPage from '../collection/collection.component';
 import WithSpiner from '../../components/with-spinner/with-spinner.component';
-import {
-  fetchCollectionsStartAsync,
-} from '../../redux/shop/shop.actions';
+import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
 
 import {
   selectIsCollectionsLoaded,
   selectIsCollectionFetching,
 } from '../../redux/shop/shop.selectors';
 
-// import { insertCollectionsToFirebase } from '../../firebase/firebase.util';
-
 const CollectionOverviewWithSpinner = WithSpiner(CollectionOverview);
 const CollectionPageWithSpinner = WithSpiner(CollectionPage);
 class ShopPage extends React.Component {
-
-
   componentDidMount() {
-
-
-    const { fetchCollectionsStartAsync } = this.props;
-    fetchCollectionsStartAsync();
+    const { fetchCollectionsStart } = this.props;
+    fetchCollectionsStart();
   }
   render() {
     const { match, isCollectionsLoaded, isFetching } = this.props;
@@ -57,7 +49,6 @@ const mapStateToProps = createStructuredSelector({
   isFetching: selectIsCollectionFetching,
 });
 const mapDispatchToProps = (dispatch) => ({
-
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);

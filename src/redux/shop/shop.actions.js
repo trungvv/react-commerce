@@ -9,9 +9,9 @@ export const UpdateCollection = (collectionsMap) => ({
   payload: collectionsMap,
 });
 
-export const fetchCollectionsStart = {
+export const fetchCollectionsStart = () => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_START,
-};
+})
 export const fetchCollectionsSuccess = (collectionsMap) => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_SUCCESS,
   payload: collectionsMap,
