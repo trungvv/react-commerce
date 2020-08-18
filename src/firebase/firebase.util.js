@@ -3,14 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const conf = {
-  apiKey: 'AIzaSyCbORXCeXMb8Jl0wy6Zw_Q0JUWVHGcCTpA',
-  authDomain: 'static-chiller-283814.firebaseapp.com',
-  databaseURL: 'https://static-chiller-283814.firebaseio.com',
-  projectId: 'static-chiller-283814',
-  storageBucket: 'static-chiller-283814.appspot.com',
-  messagingSenderId: '900000497551',
-  appId: '1:900000497551:web:3ee42c95c3e1c950a8d5fa',
-  measurementId: 'G-4K007XJ8JX',
+  apiKey: "AIzaSyCbORXCeXMb8Jl0wy6Zw_Q0JUWVHGcCTpA",
+  authDomain: "static-chiller-283814.firebaseapp.com",
+  databaseURL: "https://static-chiller-283814.firebaseio.com",
+  projectId: "static-chiller-283814",
+  storageBucket: "static-chiller-283814.appspot.com",
+  messagingSenderId: "900000497551",
+  appId: "1:900000497551:web:3ee42c95c3e1c950a8d5fa",
+  measurementId: "G-4K007XJ8JX"
 };
 firebase.initializeApp(conf);
 export const auth = firebase.auth();
@@ -66,11 +66,11 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   return transformedCollection.reduce((accumulator, collection) => {
     accumulator[collection.title.toLowerCase()] = collection;
     return accumulator;
-  },{})
+  }, {});
 };
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
